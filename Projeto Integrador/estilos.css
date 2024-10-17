@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background-color: #ffffff; /* Cor Principal */
+    background-color: #000; /* Cor Principal */
     color: #535353; /* Cor do Texto */
     margin: 0;
     padding: 0;
@@ -30,7 +30,7 @@ hr {
 
 /* Estilos da tabela */
 table {
-    width: 80%;
+    width: 20%;
     margin: 20px auto;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
@@ -51,7 +51,7 @@ th, td {
 }
 
 th {
-    background-color: #ffff00; /* Cor de Destaque no cabeçalho */
+    background-color: gray; /* Cor de Destaque no cabeçalho */
     color: #000000; /* Cor Secundária no texto */
     font-size: 1.2em;
 }
@@ -61,7 +61,7 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-    background-color: #ffff00; /* Destaque ao passar o mouse */
+    background-color: gray; /* Destaque ao passar o mouse */
 }
 
 /* Estilos da lista de jogos */
@@ -80,7 +80,7 @@ ul li {
 }
 
 ul li:hover {
-    background-color: #ffff00; /* Destaque ao passar o mouse */
+    background-color: gray; /* Destaque ao passar o mouse */
 }
 
 /* Estilos do rodapé */
