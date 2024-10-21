@@ -146,6 +146,13 @@ img {
     transition: transform 0.3s ease;
 }
 
+img {
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+img:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 5% ao passar o mouse */
+}
 
 
 
