@@ -13,6 +13,7 @@ h1, h2 {
     font-size: 2.5em;
     margin: 20px 0;
     color: #000000; /* Cor do Título */
+    text-align: center;
 }
 
 h3 {
@@ -24,6 +25,7 @@ h3 {
 p {
     font-size: 1.5rem;
     color: #000000;
+    text-align: center;
 }
 
 /* Linha horizontal */
@@ -40,6 +42,7 @@ table {
     font-family: 'Noto Sans', sans-serif;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    text-align: center;
 }
 
 thead {
@@ -120,7 +123,7 @@ ul li:hover {
  
 /* Estilos do rodapé */
 footer {
-    background-color: gray; /* Cor Secundária no rodapé */
+    background-color: black; /* Cor Secundária no rodapé */
     color: #fff; /* Cor Alternativa no texto */
     padding: 50px;
     position: relative;
@@ -130,9 +133,21 @@ footer {
 }
  
 footer p {
-    margin: 0;
-    font-size: 1em;
-    font-weight: bold;
+    color: white;
+}
+
+.footer-container {
+    width: 100%;
+    padding: 20px;
+    
+    p {
+        text-align: center;
+    }
+}
+
+.logo-img {
+    width: 50px !important;
+    border: 5px solid white!important;
 }
 
 img {
@@ -144,28 +159,28 @@ img {
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-}
-
-img {
-    transition: transform 0.3s ease; /* Transição suave */
+    border: 5px solid #c5b9b9d3;
+    padding: 5px;
 }
 
 img:hover {
-    transform: scale(1.05); /* Aumenta a imagem em 5% ao passar o mouse */
+    transform: scale(1.09); /* Aumenta a imagem em 9% ao passar o mouse */
+    filter: brightness(1.1) saturate(1.2);
 }
 
+.instagram-media {
+    width: 80%;
+    max-width: 800px;
+    min-height: 400px; /* Ajuste a altura mínima conforme necessário */
+    margin: auto;
+    position: center;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    .instagram-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
 
 
 
@@ -370,5 +385,4 @@ header {
             color: black;
         }
     }
-}
-
+}    
