@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    overflow-x: hidden;
 }
  
 /* Estilo do título principal */
@@ -195,107 +196,30 @@ img:hover {
 
 
 
-header {
-    margin: auto;
-    height: 10vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    z-index: 1;
-    position: sticky;
-    top: 0;
-
-
-    background-color: white;
-
-    .logo {
-
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-
-        img {
-            width: 50px;
-        }
-    }
-
-    nav {
-        margin-left: auto;
-    }
-}
-
-.menu-hamburguer div {
-    display: none;
-    width: 32px;
-    height: 2px;
-    background-color: black;
-    margin: 8px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.fechar .linha1 {
-    transform: rotate(-45deg) translate(-8px, 8px);
-}
-
-.fechar .linha2 {
-    opacity: 0;
-}
-
-.fechar .linha3 {
-    transform: rotate(45deg) translate(-5px, -7px);
-}
-
-
-.menu {
-    display: none;
-}
-
-
-.menu.aberto {
-    display: flex;
-}
-
-@media (max-width: 800px) {
-    .menu {
-        position: absolute;
-        top: 10vh;
-        right: 0;
-        
-        width: 100vw;
-        height: 90vh;
-        
-        background-color: black;
-        text-align: center;
-        
-        display: none;
-        justify-content: center;
-        gap: 20%;
-        ul {
-            padding: 0;
+    header {
+        .links-menu .sub-menu {
+            display: none;
+            flex-direction: column;
+            position: relative;
+            background-color: white;
             list-style: none;
-        }
+            padding: 0;
+            margin: 0;
+          
         
-        a {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .coluna-esquerda,
-        .coluna-direita {
             li {
-                padding-bottom: 10px;
+                a{
+                font-weight: 500;
+                }
             }
         }
-    }
     
-    .menu-hamburguer div {
-        display: flex;
+        .links-menu .sub-menu.aberto {
+            display: block; 
+        }
     }
-}
+   
+
 
 
 
@@ -341,6 +265,7 @@ header {
             color: black;
         }
     }
+
 }
 
 @media (min-width:1201px) {
