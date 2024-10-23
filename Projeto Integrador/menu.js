@@ -2,7 +2,7 @@ const botaoMenu = document.querySelector(".menu-hamburguer");
 const listaLinks = document.querySelector(".menu");
 
 botaoMenu.addEventListener("click", function(){
-    //Anulando o comportamento padrão de recarregar a pagina através de links
+    //Anulando o comportamento padrão de recarregar a página através de links
     // event.preventDefault();
     listaLinks.classList.toggle("aberto")
 

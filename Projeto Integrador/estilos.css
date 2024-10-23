@@ -1,3 +1,4 @@
+/* Estilo geral */
 body {
     font-family: 'Raleway', sans-serif;
     background-color: #fff; /* Cor Principal */
@@ -5,20 +6,12 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    overflow-x: hidden;
-}
- 
-/* Estilo do título principal */
-h1, h2 {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 2.5em;
-    margin: 20px 0;
-    color: #000000; /* Cor do Título */
-    text-align: center;
+    overflow-x: hidden; /* Remover barra de rolagem horizontal */
 }
 
-h3 {
+h1, h2 {
     font-family: 'Noto Sans', sans-serif;
+    font-size: 2.5rem;
     margin: 20px 0;
     color: #000000; /* Cor do Título */
 }
@@ -33,17 +26,18 @@ p {
 hr {
     width: 80%;
     margin: 20px auto;
-    border: 1px solid 000000; /* Cor de Destaque */
+    border: 1px solid #000000; /* Cor de Destaque */
 }
- 
+
 /* Estilos da tabela */
 table {
-    width: 80%;
+    width: 100%;
+    max-width: 80%;
     margin: 20px auto;
     font-family: 'Noto Sans', sans-serif;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
-    text-align: center;
+    overflow-x: auto; /* Adiciona rolamento horizontal para telas menores */
 }
 
 thead {
@@ -65,13 +59,12 @@ tbody td {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #000000;
+    background-color: #f4f4f4; /* Tom claro para as linhas pares */
 }
 
 tbody tr:hover {
-    background-color: #000000;
+    background-color: gray; /* Destaque ao passar o mouse */
 }
- 
 
 table caption {
     caption-side: top;
@@ -81,47 +74,40 @@ table caption {
     text-align: center;
     color: #ffffff; /* Cor do Subtítulo */
 }
- 
+
 th, td {
     padding: 5px;
     border: 1px solid #000000; /* Cor Secundária */
     text-align: center;
     background-color: #ffffff; /* Cor Alternativa */
 }
- 
+
 th {
     background-color: gray; /* Cor de Destaque no cabeçalho */
     color: #000000; /* Cor Secundária no texto */
     font-size: 1.2em;
 }
- 
-tbody tr:nth-child(even) {
-    background-color: #f4f4f4; /* Tom claro para as linhas pares */
-}
- 
-tbody tr:hover {
-    background-color: gray; /* Destaque ao passar o mouse */
-}
- 
+
 /* Estilos da lista de jogos */
 ul {
     list-style-type: none; /* Remover marcadores */
     padding: 0;
 }
- 
+
 ul li {
     background-color: #ffffff; /* Cor Alternativa */
     margin: 10px auto;
     padding: 15px;
-    width: 60%;
+    width: 90%; /* Ajustado para telas menores */
+    max-width: 400px; /* Limita a largura máxima */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
- 
+
 ul li:hover {
     background-color: gray; /* Destaque ao passar o mouse */
 }
- 
+
 /* Estilos do rodapé */
 footer {
     background-color: black; /* Cor Secundária no rodapé */
@@ -132,25 +118,17 @@ footer {
     width: 100%;
     text-align: center;
 }
- 
-footer p {
-    color: white;
-}
 
 .footer-container {
     width: 100%;
     padding: 20px;
-    
-    p {
-        text-align: center;
-    }
 }
 
-.logo-img {
-    width: 50px !important;
-    border: 5px solid white!important;
+.footer-container p {
+    text-align: center;
 }
 
+/* Imagem responsiva */
 img {
     border-radius: 10%;
     width: 100%;
@@ -169,145 +147,193 @@ img:hover {
     filter: brightness(1.1) saturate(1.2);
 }
 
+.logo-img {
+    width: 50px !important;
+    border: 5px solid white !important;
+}
+
 .instagram-media {
     width: 80%;
     max-width: 800px;
     min-height: 400px; /* Ajuste a altura mínima conforme necessário */
     margin: auto;
     position: center;
+}
+
+.instagram-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+/* Menu hamburguer */
+header {
+    margin: auto;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: white;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    width: 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Distribui os itens de forma igual */
+    align-items: center; /* Alinha os itens verticalmente */
+    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha em telas pequenas */
+    margin-left: auto;
+}
+
+.menu-hamburguer {
+    position: absolute; /* Ou absolute dependendo do layout */
+    right: 20px; /* Posiciona o menu hamburguer no lado direito */
+    top: 20px;
+}
+
+.menu-hamburguer div {
+    display: none;
+    width: 32px;
+    height: 2px;
+    background-color: black;
+    margin: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fechar .linha1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.fechar .linha2 {
+    opacity: 0;
+}
+
+.fechar .linha3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+
+.menu {
+    display: none;
+}
+
+.menu.aberto {
+    display: flex; /* Exibe o menu ao clicar */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Fixado na tela */
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh; /* O menu cobre toda a tela */
+    background-color: black; /* Fundo preto */
+    z-index: 999;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 800px) {
+    .menu-hamburguer {
+        position: absolute; 
+        top: 20px;
+        right: 20px; /* Garante que ele fique no canto direito */
     }
 
-    .instagram-container {
-        display: flex;
-        justify-content: center;
-        margin: 20px;
+    .menu-hamburguer div {
+        display: block; /* Garante que o botão de menu esteja visível */
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    header {
-        .links-menu .sub-menu {
-            display: none;
-            flex-direction: column;
-            position: relative;
-            background-color: white;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-          
-        
-            li {
-                a{
-                font-weight: 500;
-                }
-            }
-        }
-    
-        .links-menu .sub-menu.aberto {
-            display: block; 
-        }
+    .menu {
+        display: none; /* Oculto por padrão */
     }
-   
 
+    .menu.aberto {
+        display: flex; /* Mostra o menu ao ativar */
+    }
 
+    a {
+        font-size: 1.5rem;
+        color: black; /* Melhor contraste */
+    }
 
+    h1 {
+        font-size: 2rem; /* Tamanho reduzido para dispositivos pequenos */
+    }
 
-@media (min-width: 801px) and (max-width:1200px) {
-    h1 {font-size: 2.5rem;}
-    h2 {font-size: 2rem;}
-    h3 {font-size: 1.75rem;}
-    
-    p {font-size: 1.125rem;}
-    
+    p {
+        font-size: 1rem; /* Ajusta o tamanho do texto */
+    }
+
+    ul li {
+        width: 95%; /* Ajusta a largura para caber melhor em telas pequenas */
+        max-width: none; /* Remove a largura máxima */
+    }
+}
+
+/* Responsividade para telas médias */
+@media (min-width: 801px) and (max-width: 1200px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+
+    p { font-size: 1.125rem; }
+
     nav {
         margin: auto;
-        width: 100% ;
+        width: 100%;
     }
-    
+
     .menu {
         margin: auto;
         display: flex;
         justify-content: space-between;
         max-width: 800px;
-        padding-left: 10px ;
+        padding-left: 10px;
         padding-right: 10px;
-    }   
-    
-    .coluna-direita {
-        margin-left: auto; 
     }
-    
-    .coluna-esquerda {
-        margin-right: auto;
-    }
-    
+
     .links-menu {
         list-style: none;
         padding: 0;
         display: flex;
         flex-direction: row;
         gap: 50px;
-        
+
         a {
             font-weight: 700;
             text-decoration: none;
             color: black;
         }
     }
-
 }
 
-@media (min-width:1201px) {
-    h1 {font-size: 3rem;}
-    h2 {font-size: 2.25rem;}
-    h3 {font-size: 2rem;}
-    
-    p {font-size: 1.25rem;}
-    
+/* Responsividade para telas grandes */
+@media (min-width: 1201px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; }
+
+    p { font-size: 1.25rem; }
+
     nav {
         margin: auto;
-        width: 100% ;
+        width: 100%;
     }
-    
+
     .menu {
         margin: auto;
         display: flex;
         justify-content: space-between;
         max-width: 1000px;
-        padding-left: 10px ;
+        padding-left: 10px;
         padding-right: 10px;
-    }   
-    
-    .coluna-direita {
-        margin-left: auto; 
     }
-    
-    .coluna-esquerda {
-        margin-right: auto;
-    }
-    
-    .links-menu {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-        gap: 50px;
-        
-        a {
-            font-weight: 700;
-            text-decoration: none;
-            color: black;
-        }
-    }
-}    
+}
