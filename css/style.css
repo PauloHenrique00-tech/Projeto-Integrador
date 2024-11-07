@@ -1,0 +1,1156 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 2rem 0;
+    line-height: 1.8;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+
+/* ---> animação de entrada do conteudo <--- */
+@keyframes anima-scroll {
+    0% {
+        opacity: 0;
+        transform: translate(-150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+.box {
+    animation: anima-scroll linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->     cabeçalho   <--- */
+header {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+
+    height: 10vh;
+    background-color: black;
+}
+
+header .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header .logo img {
+    height: 6.5vh;
+}
+
+nav {
+    margin-left: auto;
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->     menu    <--- */
+.links-menu .sub-menu {
+    display: none;
+    flex-direction: column;
+    top: 7vh;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+}
+
+.links-menu .sub-menu li {
+    padding: 10px 25px 10px 10px;
+   
+}
+
+.links-menu .sub-menu li a {
+    color: black;
+    font-weight: 500;
+   
+}
+
+.links-menu .sub-menu.aberto {
+    display: flex;
+}
+
+.menu-hamburguer div {
+    display: none;
+    width: 32px;
+    height: 0.2vh;
+    background-color: white;
+    margin: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fechar .linha1 {
+    transform: rotate(-45deg) translate(-6px, 8px);
+}
+
+.fechar .linha2 {
+    opacity: 0;
+}
+
+.fechar .linha3 {
+    transform: rotate(45deg) translate(-4px, -7px);
+}
+
+.menu {
+    display: none;
+}
+
+.menu.aberto {
+    display: flex;
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->     calendario      <--- */
+
+.calendario {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.calendario h2 {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.calendario .jogos img {
+    width: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.calendario .jogos h2 {
+    margin: 5px;
+}
+
+.calendario .jogos p {
+    margin-bottom: 1rem;
+}
+
+.calendario .proximo-jogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->     destaque        <--- */
+.destaque {
+    position: relative;
+    height: auto;
+    margin: 0;
+}
+
+.destaque img {
+    height: 80vh;
+    width: 100%;
+    filter: brightness(0.5);
+  
+}
+
+.destaque figcaption {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.6;
+    color: white;
+    font-size: calc(1rem + 1vw);
+    max-height: 80%;
+}
+
+.destaque figcaption strong {
+    letter-spacing: 5px;
+    font-family: "Anton", sans-serif;
+    font-size: calc(5rem + 3vw);
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->     media para altura       <--- */
+@media (max-height: 500px) {
+    header {
+        height: 50px;
+    }
+
+    header .logo img {
+        height: 35px;
+    }
+
+    .destaque figcaption {
+        font-size: 14px;
+    }
+
+    .destaque figcaption strong {
+        font-size: 4rem;
+    }
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->     carrossel       <--- */
+.container-carrossel {
+    margin: auto;
+    max-width: 1800px;
+}
+
+.container-carrossel h2 {
+    color: white;
+    padding-left: 2rem;
+}
+
+.container-carrossel .carrossel {
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    align-items: center;
+    scrollbar-width: none;
+}
+
+.container-carrossel .carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.container-carrossel .carrossel .item-carrossel {
+    margin: 0;
+    transform: scale(0.9);
+    transition: transform 0.5s ease;
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+}
+
+.container-carrossel .carrossel .item-carrossel img {
+    width: auto;
+    height: 50vh;
+}
+
+.container-carrossel .carrossel .item-carrossel:hover {
+    transform: scale(1);
+}
+
+.container-carrossel .carrossel figcaption {
+    background-color: rgb(58, 57, 57);
+    filter: brightness(0.8);
+    text-align: center;
+    color: white;
+}
+
+.container-carrossel .carrossel figcaption.off {
+    background-color: red;
+    filter: brightness(0.8);
+}
+
+.container-carrossel p a {
+    text-decoration: none;
+    color: white;
+}
+
+.container-carrossel .insta a {
+    text-decoration: none;
+    color: #fff;
+    margin: 1rem;
+}
+
+.container-carrossel .botao {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.container-carrossel button {
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+    text-align: center;
+    width: 100px;
+}
+
+.container-carrossel button:hover {
+    transform: translateY(-2px);
+}
+
+.container-carrossel button:active {
+    transform: translateY(0);
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->     galeria     <--- */
+.galeria h2 {
+    color: white;
+    padding-left: 2rem;
+}
+
+.galeria .galeria-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+   
+}
+
+.galeria .galeria-container .foto {
+    margin: 0;
+    width: 340px;
+    overflow: hidden;
+    position: relative;
+}
+
+.galeria .galeria-container .foto img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.galeria .galeria-container .foto figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(59, 57, 57);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.galeria .galeria-container .foto img:hover {
+    transform: scale(1.1);
+}
+
+.galeria .galeria-container .foto:hover figcaption {
+    transform: translateY(0);
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->     sobre       <--- */
+.sobre {
+    margin: auto;
+    margin-bottom: 2rem;
+    background-color: white;
+    max-width: 1800px;
+    border-radius: 10px;
+}
+
+.sobre h2 {
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.sobre p {
+    padding: 10px;
+    line-height: 1.5;
+}
+
+.sobre a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sobre a:hover {
+    text-decoration: underline;
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->  localização   <--- */
+.localizacao iframe {
+    display: flex;
+    
+    max-width: 1000px;
+    height: 200px;
+    width: 100%;
+    margin: auto;
+}
+/* --->  localização   <--- */
+
+
+
+
+
+/* --->  rodapé   <--- */
+footer {
+    background-color: black;
+    color: white;
+}
+
+.footer-container {
+    width: 100%;
+    padding: 20px;
+}
+
+.footer-container h4 {
+    text-align: center;
+}
+
+
+.infos {
+    display: flex;
+    justify-content: center;
+}
+
+.infos img {
+    width: 50px;
+}
+
+.mapa-site {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mapa-site ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mapa-site ul li {
+    margin-bottom: 10px;
+}
+
+.mapa-site a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->  media para celular   <--- */
+@media (max-width: 800px) {
+    .menu {
+        position: absolute;
+        top: 10vh;
+        right: 0;
+        flex-direction: column;
+        width: 100vw;
+        height: 90vh;
+        background-color: white;
+        text-align: center;
+        display: none;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    a {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
+
+    .coluna-esquerda li,
+    .coluna-direita li {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .menu-hamburguer div {
+        display: flex;
+    }
+
+    .sub-menu {
+        display: flex;
+        background-color: white;
+        list-style: none;
+        top: 0;
+    }
+
+    .sub-menu li a {
+        font-size: 1.125rem;
+        font-weight: 400;
+      
+    }
+
+    .estilo-tabela {
+        flex-direction: column;
+    }
+
+    .tabela-combinada {
+        display: block;
+        flex-direction: column;
+        overflow-x: auto;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+    }
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->  media tablet   <--- */
+@media (min-width: 801px) and (max-width: 1200px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 1.125rem;
+    }
+
+    nav {
+        margin: auto;
+        width: 100%;
+    }
+
+    .menu {
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        max-width: 800px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .coluna-direita {
+        margin-left: auto;
+    }
+
+    .coluna-esquerda {
+        margin-right: auto;
+    }
+
+    .links-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .links-menu a {
+        font-weight: 700;
+        text-decoration: none;
+        color: white;
+    }
+}
+
+/* --->     <--- */
+
+
+
+
+
+/* --->  media desktop   <--- */
+@media (min-width: 1201px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+
+    nav {
+        margin: auto;
+        width: 100%;
+    }
+
+    .menu {
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        max-width: 1000px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .coluna-direita {
+        margin-left: auto;
+    }
+
+    .coluna-esquerda {
+        margin-right: auto;
+    }
+
+    .links-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .links-menu a {
+        font-weight: 700;
+        text-decoration: none;
+        color: white;
+    }
+
+    .calendario-jogos {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+/* --->   <--- */
+
+
+
+
+
+/* --->  pag historia   <--- */
+#pag-historia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#pag-historia h1 {
+    text-align: center;
+    color: white;
+}
+
+#pag-historia .historia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    max-width: 1800px;
+    border-radius: 10px;
+}
+
+#pag-historia .historia img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border: solid 2px lightgray;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#pag-historia .historia h2 {
+    text-align: center;
+    margin: 2rem;
+}
+
+#pag-historia .historia p {
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+/* --->     <--- */
+
+
+
+
+
+/* --->  pag comunidade   <--- */
+#pag-comunidade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#pag-comunidade h1 {
+    color: white;
+}
+
+#pag-comunidade .opiniao {
+    width: 100%;
+}
+
+#pag-comunidade figure {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+#pag-comunidade img {
+    max-width: 400px;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border: solid 2px lightgray;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: ease-in 0.3s;
+}
+
+#pag-comunidade img:hover {
+    transform: scale(1);
+}
+
+#pag-comunidade .comunidade {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    max-width: 1800px;
+    border-radius: 10px;
+}
+
+#pag-comunidade .comunidade h2 {
+    text-align: center;
+    margin: 2rem;
+}
+
+#pag-comunidade .comunidade p {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    padding: 10px;
+}
+
+#pag-comunidade .comunidade .insta-corp {
+    display: flex;
+    justify-content: center;
+}
+
+#pag-comunidade label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#pag-comunidade input,
+#pag-comunidade select,
+#pag-comunidade textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#pag-comunidade textarea {
+    resize: vertical;
+}
+
+#pag-comunidade button {
+    background-color: #ffeb3b;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-bottom: 2rem;
+}
+
+#pag-comunidade button:hover {
+    background-color: #fdd835;
+}
+/* --->     <--- */
+
+
+
+
+
+
+
+
+
+
+/* --->   tabelas  <--- */
+#pag-camp1,
+#pag-camp2,
+#pag-camp3 {
+    background-color: white;
+   
+}
+
+#pag-camp1 main h1,
+#pag-camp2 main h1,
+#pag-camp3 main h1{
+    text-align: center;  
+}
+
+#pag-camp1 main .estilo-tabela,
+#pag-camp2 main .estilo-tabela,
+#pag-camp3 main .estilo-tabela {
+    width: 100%;
+    display: flex;
+    
+    justify-content: space-around;
+    padding: 2rem; 
+}
+
+#pag-camp1 main .estilo-tabela .jogos,
+#pag-camp2 main .estilo-tabela .jogos,
+#pag-camp3 main .estilo-tabela .jogos {
+
+    gap: 10px;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pag-camp1 main .estilo-tabela .jogos img,
+#pag-camp2 main .estilo-tabela .jogos img,
+#pag-camp3 main .estilo-tabela .jogos img {
+    width: 50px;
+}
+
+
+#pag-camp1 main .estilo-tabela table,
+#pag-camp2 main .estilo-tabela table,
+#pag-camp3 main .estilo-tabela table {
+    border-collapse: collapse;
+}
+
+#pag-camp1 main .estilo-tabela th,
+#pag-camp1 main .estilo-tabela td,
+#pag-camp2 main .estilo-tabela th,
+#pag-camp2 main .estilo-tabela td,
+#pag-camp3 main .estilo-tabela th,
+#pag-camp3 main .estilo-tabela td {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+
+
+
+#pag-camp1 main .estilo-tabela .lista-jogos h2,
+#pag-camp2 main .estilo-tabela .lista-jogos h2 {
+    text-align: center;
+    padding: 10px;
+    border-bottom: solid 2px;
+}
+
+#pag-camp1 main .estilo-tabela .lista-jogos ul,
+#pag-camp2 main .estilo-tabela .lista-jogos ul {
+    margin-right: 1em;
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+#pag-camp1 main .estilo-tabela .lista-jogos ul li,
+#pag-camp2 main .estilo-tabela .lista-jogos ul li {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 1.1em;
+    padding: 10px;
+    border-bottom: solid 1px;
+}
+
+
+#pag-camp1 main .estilo-tabela td:nth-child(odd),
+#pag-camp1 main .estilo-tabela th:nth-child(odd),
+#pag-camp2 main .estilo-tabela td:nth-child(odd),
+#pag-camp2 main .estilo-tabela th:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#pag-camp1 main .estilo-tabela tr:hover,
+#pag-camp2 main .estilo-tabela tr:hover,
+#pag-camp3 main .estilo-tabela tr:hover {
+    background-color: lightgray;
+}
+
+#pag-camp1 main .estilo-tabela td:hover,
+#pag-camp2 main .estilo-tabela td:hover,
+#pag-camp3 main .estilo-tabela td:hover {
+    background-color: lightgray;
+}
+
+
+
+#pag-camp1 main .estilo-tabela th:first-child, td:first-child,
+#pag-camp2 main .estilo-tabela th:first-child, td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #fff;  
+}
+
+#pag-camp3 main h2 {
+    text-align: center;
+    margin: 0;
+}
+
+#pag-camp3 main hr {
+    margin-bottom: 2rem;
+}
+
+#pag-camp3 main .estilo-tabela {
+    margin: auto;
+    max-width: 1800px;
+}
+
+
+
+
+
+
+
+/* --->     <--- */
+
+
+
+
+
+/* --->     pag eventos     <--- */
+#pag-eventos {
+    color: white;
+    text-align: center;
+}
+
+#pag-eventos .eventos {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin: auto;
+    max-width: 1800px;
+}
+
+#pag-eventos .eventos h2 {
+    padding-top: 2rem;
+}
+
+#pag-eventos .eventos figure {
+    margin: 0;
+}
+
+#pag-eventos .eventos figure img {
+    width: 100%;
+    object-fit: cover;
+    max-width: 1400px;
+    
+}
+
+#pag-eventos .eventos div {
+    position: relative;
+}
+
+#pag-eventos .eventos div .button-hallo {
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+   
+}
+
+#pag-eventos .eventos div .button-hallo:hover {
+    transform: scale(1.05);
+    color: #ff4500;
+    background-color: white;
+    border: 1px solid;
+}
+
+
+#pag-eventos .container-carrossel h2,
+#pag-eventos .galeria h2 {
+    text-align: center;
+    color: black;
+    padding: 0;
+}
+
+#pag-eventos .galeria {
+    margin: auto;
+    max-width: 1300px;
+    flex-wrap: wrap;
+}
+
+footer {
+    background-color: black;
+}
+
+/* --->     <--- */
+
+
+
+
+
+
+/* --->  pag atividades   <--- */
+#pag-atividades h1 {
+    color: white;
+    text-align: center;
+}
+
+#pag-atividades .atividades {
+    max-width: 1800px;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#pag-atividades .atividades p {
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+#pag-atividades .atividades .titulo {
+    text-align: center;
+}
+
+#pag-atividades .atividades .beneficios h2 {
+    text-align: center;
+    padding: 2rem;
+    margin: 0;
+}
+
+#pag-atividades .img-ativivades {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 2rem;
+    gap: 30px;
+    
+}
+
+#pag-atividades .info-atividades a img {
+    width: 40px;
+}
+
+#pag-atividades .esportes h3 {
+    padding-left: 2rem;
+}
+
+#pag-atividades .esportes img {
+   width: 100%;
+   max-width: 300px;
+   max-height: 300px;
+   object-fit: cover;
+}
+
+#pag-atividades .atividades .instagram-media {
+    display: inline !important;
+    width: 100%;
+    max-width: 300px;
+    max-height: 500px;
+}
+
+#pag-atividades .atividades .instagram-container {
+    width: auto;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+#pag-atividades .atividades .aulas-gratis h2 {
+    text-align: center;
+}
+/* --->     <--- */
